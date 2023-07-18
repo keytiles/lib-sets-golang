@@ -243,7 +243,7 @@ func TestSetsUnion(t *testing.T) {
 	set2 := NewSet[string]("c", "d", "e")
 
 	// ---- WHEN
-	union := Sets_Union[string](set1, set2)
+	union := Union[string](set1, set2)
 	// ---- THEN
 	// set1 and set2 not changed
 	assert.True(t, set1.Equals(NewSet("a", "b", "c")))
