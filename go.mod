@@ -1,4 +1,4 @@
-module git.keytiles.com/keytiles-golang/lib-sets-golang
+module github.com/keytiles/lib-sets-golang
 
 go 1.20
 
