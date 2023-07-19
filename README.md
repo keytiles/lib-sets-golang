@@ -6,6 +6,10 @@ Implementation of Set data structure and a few useful methods
 
 It's very simple. The below is just a taste - check the available operations and functions for yourself! ;-)
 
+> **IMPORTANT!** - keep an eye on thread-safety! The currently available `ktsets.Set` implementation is NOT thread safe (intentionally)!  
+
+It is possible in the future we add something like `ktsets.ConcurrentSet` or similar which provides thread-safe implementation but for now we don't need it.
+
 ```go
 
 // ---- Creating Sets
