@@ -21,3 +21,6 @@ public
 *.log
 # data folder excluded
 data
+
+# we do not commit main.go in this lib
+main.go
