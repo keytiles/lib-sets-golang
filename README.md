@@ -30,6 +30,7 @@ wasRemoved = myStringSet.Remove("a string")                // wasRemoved = false
 howManyWasRemoved := myStringSet.RemoveAll("one", "three") // howManyWasRemoved = 2
 howManyWasRemoved = myStringSet.RemoveAll("one", "four")   // howManyWasRemoved = 1
 
+
 // ---- What is in the Set?
 
 var elements []string
@@ -44,6 +45,7 @@ if myStringSet.IsEmpty() {
     // we will NOT come here as not empty
 }
 
+
 // ---- Containment checks
 
 // containment check
@@ -52,6 +54,7 @@ if myStringSet.Contains("two") {
 }
 containsAll := myStringSet.ContainsAll("one", "two", "three") // containsAll = false
 containsAny := myStringSet.ContainsAny("one", "two", "three") // containsAny = true
+
 
 // ---- Set-Set operations
 
@@ -67,6 +70,9 @@ myStringSet.Subtract(myOtherStringSet) // myStringSet now goes bacck to: ["two"]
 // don't want to screw up "myStringSet"?
 // Operate on clone!
 myStringSet.Clone().Intersect(myOtherStringSet)
+
+
+// ---- provided Set-Set operation functions
 
 // Or use Union function - which returns new instance always leaving original Sets untouched
 unionSet := ktsets.Union(myStringSet, ktsets.NewSet[string]("apple", "orange"), ktsets.NewSet[string]("strawberry"))
