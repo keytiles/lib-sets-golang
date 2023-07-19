@@ -1,6 +1,15 @@
 # lib-sets-golang
 
-Implementation of Set data structure and a few useful methods
+Slim implementation of Set data structure and a few useful methods.
+
+With
+ * Zero dependencies
+ * Compile time type safety
+
+Bringing
+ * ktsets.Set which
+    * Works for any Comparable type
+    * Avoids using pointers to operate on (call) stack and do not push load to GC
 
 # How to use
 
@@ -85,3 +94,6 @@ fmt.Printf("union is: %v", unionSet.String())
 
 ```
 
+# Other libraries
+
+There is a more robust Set implementation [go-set](https://github.com/hashicorp/go-set) from Hashicorp but that seemed to be a bit overkill for our use cases. But also worth checking - maybe a better fit for your stuff?
