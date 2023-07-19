@@ -7,7 +7,7 @@ With
  * Compile time type safety
 
 Bringing
- * ktsets.Set which
+ * `ktsets.Set` which
     * Works for any Comparable type
     * Avoids using pointers to operate on (call) stack and do not push load to GC
 
