@@ -27,6 +27,15 @@ func NewSet[T comparable](elements ...T) Set[T] {
 	return s
 }
 
+// Creates a new Set with initial capacity - optionally with the given initial content
+func NewSetWithCapacity[T comparable](capacity int, elements ...T) Set[T] {
+	s := Set[T]{_map: make(map[T]bool, capacity)}
+	if len(elements) > 0 {
+		s.AddAll(elements...)
+	}
+	return s
+}
+
 // Returns a string representation of this Set
 // If you placed complex objects in the map then result might look funny.. :-) but works
 func (s Set[T]) String() string {
@@ -40,9 +49,15 @@ func (s Set[T]) String() string {
 }
 
 // Returns a clone of this Set.
+// Optionally, you can pass in a desired capacity of the clone (obviously, if its smaller than will be corrected). If you pass in more
+// arguments than one only the first one is used so no point to do that
 // PLEASE NOTE! This method is not doing deep-cloning!
-func (s Set[T]) Clone() Set[T] {
-	contentClone := make(map[T]bool, len(s._map))
+func (s Set[T]) Clone(capacity ...int) Set[T] {
+	cloneLen := len(s._map)
+	if len(capacity) > 0 && capacity[0] > cloneLen {
+		cloneLen = capacity[0]
+	}
+	contentClone := make(map[T]bool, cloneLen)
 	for k, v := range s._map {
 		contentClone[k] = v
 	}
@@ -117,8 +132,10 @@ func (s Set[T]) ContainsAny(elements ...T) (containsAny bool) {
 }
 
 // Makes the Set empty
-func (s Set[T]) Clear(element []T) {
-	s._map = map[T]bool{}
+func (s Set[T]) Clear() {
+	for k := range s._map {
+		delete(s._map, k)
+	}
 }
 
 // Removes the given element from the Set - returns TRUE if element was in the Set so really removed

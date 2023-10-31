@@ -27,8 +27,8 @@ It is possible in the future we add something like `ktsets.ConcurrentSet` or sim
 
 // An empty set - containing strings
 myStringSet := ktsets.NewSet[string]()
-// A Set of integers with initial values
-myIntSet := ktsets.NewSet[int](1, 2, 3)
+// A Set of integers with initial values and capacity of 100
+myIntSet := ktsets.NewSetWithCapacity[int](100, 1, 2, 3)
 
 // ---- Some basic operations
 
